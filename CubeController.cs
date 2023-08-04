@@ -33,7 +33,7 @@ public class CubeController : MonoBehaviour
         playerInputField.text = "";  // Clear input field after processing command
     }
 
-    void ProcessCommand(string command)
+    public void ProcessCommand(string command)
     {
         string phrase = command.ToLower();
 
