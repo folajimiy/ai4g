@@ -13,7 +13,7 @@ public class Controller : MonoBehaviour
     public GameObject agent;
     public GameObject wall;
 
-    public int score = 0;
+    //public int score = 0;
 
 
     private Vector3 randomDirection;
