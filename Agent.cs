@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Agent : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Agent : MonoBehaviour
     void Start()
     {
         gameController = FindObjectOfType<Controller>();
+    
     }
 
     void OnCollisionEnter(Collision collision)
@@ -38,4 +40,19 @@ public class Agent : MonoBehaviour
         {
             // Handle trap entry
             Debug.Log("agent enetrs trap");
-            Co
+            Controller.scores[1] -= 3;
+            TeleportObjectToRandomLocation(RandomDirection());
+
+        }
+
+    }
+
+    public void TeleportObjectToRandomLocation(Vector3 direction)
+    {
+        float x = Random.Range(minX, maxX);
+        float z = Random.Range(minZ, maxZ);
+        transform.position = new Vector3(x, 0.5f, z);
+        direction = RandomDirection();
+        transform.rotation = Quaternion.LookRotation(direction);
+    }
+}
